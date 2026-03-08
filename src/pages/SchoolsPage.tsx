@@ -1,26 +1,29 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, MapPin, Search, Users, BookOpen, Phone } from "lucide-react";
+import { GraduationCap, MapPin, Search, Users, BookOpen, Phone, Loader2 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const schools = [
-  { id: 1, name: "Lincoln High School", type: "Secondary", students: 1200, phone: "555-1001", address: "100 Lincoln Ave", programs: ["Science", "Arts", "Sports"], admissionOpen: true },
-  { id: 2, name: "Maple Elementary", type: "Primary", students: 450, phone: "555-1002", address: "200 Maple Street", programs: ["General", "Music", "Languages"], admissionOpen: true },
-  { id: 3, name: "Tech Academy", type: "Vocational", students: 800, phone: "555-1003", address: "300 Tech Blvd", programs: ["IT", "Engineering", "Business"], admissionOpen: false },
-  { id: 4, name: "Sunrise Montessori", type: "Pre-School", students: 120, phone: "555-1004", address: "400 Sunrise Lane", programs: ["Montessori", "Play-based Learning"], admissionOpen: true },
-  { id: 5, name: "Central University Prep", type: "Secondary", students: 950, phone: "555-1005", address: "500 Central Rd", programs: ["STEM", "Humanities", "Arts"], admissionOpen: true },
-  { id: 6, name: "Green Valley School", type: "Primary", students: 380, phone: "555-1006", address: "600 Valley Drive", programs: ["Environmental Studies", "General", "Sports"], admissionOpen: false },
-];
-
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
+
+  const { data: schools = [], isLoading } = useQuery({
+    queryKey: ["schools"],
+    queryFn: async () => {
+      const { data, error } = await supabase.from("schools").select("*").order("name");
+      if (error) throw error;
+      return data;
+    },
+  });
+
   const filtered = schools.filter(
     (s) =>
       s.name.toLowerCase().includes(search.toLowerCase()) ||
       s.type.toLowerCase().includes(search.toLowerCase()) ||
-      s.programs.some((p) => p.toLowerCase().includes(search.toLowerCase()))
+      (s.programs || []).some((p: string) => p.toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
@@ -51,57 +54,53 @@ const SchoolsPage = () => {
 
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {filtered.map((s, i) => (
-                <motion.div
-                  key={s.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="bg-card rounded-xl border shadow-card p-5"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
-                      <h3 className="font-heading font-semibold text-foreground">{s.name}</h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
-                        <MapPin className="h-3.5 w-3.5" /> {s.address}
+            {isLoading ? (
+              <div className="flex justify-center py-12"><Loader2 className="h-8 w-8 animate-spin text-muted-foreground" /></div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {filtered.map((s, i) => (
+                  <motion.div
+                    key={s.id}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                    className="bg-card rounded-xl border shadow-card p-5"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h3 className="font-heading font-semibold text-foreground">{s.name}</h3>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
+                          <MapPin className="h-3.5 w-3.5" /> {s.address}
+                        </div>
                       </div>
+                      <span className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full">{s.type}</span>
                     </div>
-                    <span className="bg-accent/10 text-accent text-xs font-medium px-2 py-1 rounded-full">
-                      {s.type}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                    <span className="flex items-center gap-1"><Users className="h-3.5 w-3.5" /> {s.students} students</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {s.programs.map((p) => (
-                      <span key={p} className="bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full">
-                        {p}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2">
-                    <a href={`tel:${s.phone}`}>
-                      <Button variant="outline" size="sm">
-                        <Phone className="h-4 w-4 mr-1" /> Call
-                      </Button>
-                    </a>
-                    {s.admissionOpen ? (
-                      <Button variant="hero" size="sm" className="flex-1">
-                        <BookOpen className="h-4 w-4 mr-1" /> Apply Now
-                      </Button>
-                    ) : (
-                      <Button variant="secondary" size="sm" className="flex-1" disabled>
-                        Admissions Closed
-                      </Button>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            {filtered.length === 0 && (
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                      <span className="flex items-center gap-1"><Users className="h-3.5 w-3.5" /> {s.student_count} students</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {(s.programs || []).map((p: string) => (
+                        <span key={p} className="bg-secondary text-secondary-foreground text-xs px-2 py-0.5 rounded-full">{p}</span>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      {s.phone && (
+                        <a href={`tel:${s.phone}`}>
+                          <Button variant="outline" size="sm"><Phone className="h-4 w-4 mr-1" /> Call</Button>
+                        </a>
+                      )}
+                      {s.admission_open ? (
+                        <Button variant="hero" size="sm" className="flex-1"><BookOpen className="h-4 w-4 mr-1" /> Apply Now</Button>
+                      ) : (
+                        <Button variant="secondary" size="sm" className="flex-1" disabled>Admissions Closed</Button>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+            {!isLoading && filtered.length === 0 && (
               <p className="text-center text-muted-foreground py-12">No schools found matching your search.</p>
             )}
           </div>
