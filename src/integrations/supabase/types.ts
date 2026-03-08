@@ -14,6 +14,87 @@ export type Database = {
   }
   public: {
     Tables: {
+      emergency_reports: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          resolved_at: string | null
+          status: string
+          type: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          resolved_at?: string | null
+          status?: string
+          type?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          resolved_at?: string | null
+          status?: string
+          type?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      hospitals: {
+        Row: {
+          address: string
+          created_at: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          open_24h: boolean
+          phone: string | null
+          rating: number | null
+          specialties: string[] | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          open_24h?: boolean
+          phone?: string | null
+          rating?: number | null
+          specialties?: string[] | null
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          open_24h?: boolean
+          phone?: string | null
+          rating?: number | null
+          specialties?: string[] | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -41,6 +122,51 @@ export type Database = {
           phone?: string | null
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      schools: {
+        Row: {
+          address: string
+          admission_open: boolean
+          created_at: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          phone: string | null
+          programs: string[] | null
+          student_count: number | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          address: string
+          admission_open?: boolean
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          phone?: string | null
+          programs?: string[] | null
+          student_count?: number | null
+          type?: string
+          updated_at?: string
+        }
+        Update: {
+          address?: string
+          admission_open?: boolean
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          phone?: string | null
+          programs?: string[] | null
+          student_count?: number | null
+          type?: string
+          updated_at?: string
         }
         Relationships: []
       }

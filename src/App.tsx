@@ -11,6 +11,7 @@ import HospitalsPage from "./pages/HospitalsPage";
 import SchoolsPage from "./pages/SchoolsPage";
 import CommunityPage from "./pages/CommunityPage";
 import AuthPage from "./pages/AuthPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/hospitals" element={<HospitalsPage />} />
             <Route path="/schools" element={<SchoolsPage />} />
             <Route path="/community" element={<CommunityPage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AuthProvider>
