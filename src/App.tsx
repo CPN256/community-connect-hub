@@ -11,6 +11,7 @@ import HospitalsPage from "./pages/HospitalsPage";
 import SchoolsPage from "./pages/SchoolsPage";
 import CommunityPage from "./pages/CommunityPage";
 import AuthPage from "./pages/AuthPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
