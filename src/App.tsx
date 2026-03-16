@@ -34,7 +34,6 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ChatBot />
-          </Routes>
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
