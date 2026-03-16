@@ -174,10 +174,10 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Keep Your Community Safe?
+              Ready to Serve Uganda Better?
             </h2>
             <p className="text-primary-foreground/70 mb-8 max-w-md mx-auto">
-              Join thousands of citizens already connected to vital services.
+              Join thousands of Ugandan staff already connected to vital services nationwide.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link to="/emergency">

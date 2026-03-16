@@ -33,7 +33,7 @@ const services = [
     icon: ShieldCheck,
     title: "Public Safety Tips",
     desc: "Important safety information and guidelines.",
-    items: ["Keep emergency contacts saved on your phone", "Report suspicious activity to local police", "Know your nearest hospital and fire station", "Keep a first-aid kit at home"],
+    items: ["Keep Uganda Police emergency number 999 saved", "Report suspicious activity to local LC1 chairperson", "Know your nearest hospital and fire station", "Keep a first-aid kit at home and workplace"],
     color: "text-warning",
     bg: "bg-warning/10",
   },
