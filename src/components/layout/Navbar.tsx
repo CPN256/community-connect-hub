@@ -31,7 +31,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2">
           <Shield className="h-8 w-8 text-accent" />
           <span className="font-heading text-xl font-bold text-foreground">
-            Community<span className="text-accent">Guardian</span>
+            Uganda<span className="text-accent">Staff</span>
           </span>
         </Link>
 

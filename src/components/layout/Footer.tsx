@@ -38,7 +38,7 @@ const Footer = () => (
         </div>
       </div>
       <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center text-sm text-primary-foreground/50">
-        © 2026 Community Guardian. All rights reserved.
+        © 2026 Uganda Staff Guardian. All rights reserved.
       </div>
     </div>
   </footer>
