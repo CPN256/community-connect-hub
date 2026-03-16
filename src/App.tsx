@@ -12,6 +12,7 @@ import SchoolsPage from "./pages/SchoolsPage";
 import CommunityPage from "./pages/CommunityPage";
 import AuthPage from "./pages/AuthPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
 
