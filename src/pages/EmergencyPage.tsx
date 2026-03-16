@@ -12,10 +12,10 @@ const emergencyTypes = [
 ];
 
 const safeLocations = [
-  { name: "Central Police Station", type: "Police", distance: "0.8 km", phone: "911" },
-  { name: "City General Hospital", type: "Hospital", distance: "1.2 km", phone: "555-0100" },
-  { name: "Main Bus Terminal", type: "Transport", distance: "1.5 km", phone: "555-0200" },
-  { name: "Community Center", type: "Safe Zone", distance: "0.5 km", phone: "555-0300" },
+  { name: "Kampala Central Police Station", type: "Police", distance: "0.8 km", phone: "999" },
+  { name: "Mulago National Referral Hospital", type: "Hospital", distance: "1.2 km", phone: "0312-290-439" },
+  { name: "Nakivubo Bus Terminal", type: "Transport", distance: "1.5 km", phone: "0800-100-150" },
+  { name: "Kampala Community Center", type: "Safe Zone", distance: "0.5 km", phone: "0414-233-555" },
 ];
 
 const EmergencyPage = () => {

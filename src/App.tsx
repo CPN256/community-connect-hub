@@ -13,6 +13,7 @@ import CommunityPage from "./pages/CommunityPage";
 import AuthPage from "./pages/AuthPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import ChatBot from "./components/ChatBot";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient();
 
@@ -24,13 +25,13 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<Index />} />
             <Route path="/auth" element={<AuthPage />} />
-            <Route path="/emergency" element={<EmergencyPage />} />
-            <Route path="/hospitals" element={<HospitalsPage />} />
-            <Route path="/schools" element={<SchoolsPage />} />
-            <Route path="/community" element={<CommunityPage />} />
-            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
+            <Route path="/emergency" element={<ProtectedRoute><EmergencyPage /></ProtectedRoute>} />
+            <Route path="/hospitals" element={<ProtectedRoute><HospitalsPage /></ProtectedRoute>} />
+            <Route path="/schools" element={<ProtectedRoute><SchoolsPage /></ProtectedRoute>} />
+            <Route path="/community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
+            <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ChatBot />

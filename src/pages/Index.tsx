@@ -58,9 +58,9 @@ const features = [
 ];
 
 const stats = [
-  { value: "5,000+", label: "Citizens Protected" },
-  { value: "120+", label: "Hospitals Listed" },
-  { value: "350+", label: "Schools Registered" },
+  { value: "10,000+", label: "Staff Connected" },
+  { value: "200+", label: "Hospitals Listed" },
+  { value: "500+", label: "Schools Registered" },
   { value: "24/7", label: "Emergency Support" },
 ];
 
@@ -84,14 +84,14 @@ const Index = () => {
           >
             <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-1.5 mb-6">
               <Shield className="h-4 w-4 text-accent" />
-              <span className="text-accent text-sm font-medium">Your Community Safety Net</span>
+              <span className="text-accent text-sm font-medium">🇺🇬 Uganda Staff Safety Net</span>
             </div>
             <h1 className="font-heading text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
               Safety, Health &<br />
-              Education for <span className="text-accent">Everyone</span>
+              Education for <span className="text-accent">Ugandan Staff</span>
             </h1>
             <p className="text-primary-foreground/80 text-lg md:text-xl mb-8 max-w-lg">
-              One platform connecting citizens to emergency services, hospitals, schools, and community support — when it matters most.
+              One platform connecting Ugandan staff across the nation to emergency services, hospitals, schools, and community support.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/emergency">
@@ -174,10 +174,10 @@ const Index = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Keep Your Community Safe?
+              Ready to Serve Uganda Better?
             </h2>
             <p className="text-primary-foreground/70 mb-8 max-w-md mx-auto">
-              Join thousands of citizens already connected to vital services.
+              Join thousands of Ugandan staff already connected to vital services nationwide.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Link to="/emergency">

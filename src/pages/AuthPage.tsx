@@ -83,12 +83,12 @@ const AuthPage = () => {
               <Shield className="h-12 w-12 text-accent" />
             </div>
             <CardTitle className="font-heading text-2xl">
-              {isSignUp ? "Create Account" : "Welcome Back"}
+              {isSignUp ? "Create Staff Account" : "Welcome Back"}
             </CardTitle>
             <CardDescription>
               {isSignUp
-                ? "Join Community Guardian to access all services"
-                : "Sign in to your Community Guardian account"}
+                ? "Join Uganda Staff Guardian to access all services nationwide"
+                : "Sign in to your Uganda Staff Guardian account"}
             </CardDescription>
           </CardHeader>
           <CardContent>

@@ -8,10 +8,10 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-6 w-6 text-accent" />
-            <span className="font-heading text-lg font-bold">CommunityGuardian</span>
+            <span className="font-heading text-lg font-bold">UgandaStaff</span>
           </div>
           <p className="text-primary-foreground/70 text-sm">
-            Empowering communities with safety, education, and health services.
+            Empowering Ugandan staff nationwide with safety, education, and health services.
           </p>
         </div>
         <div>
@@ -31,13 +31,14 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-semibold mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li>Emergency: 911</li>
-            <li>support@communityguardian.org</li>
+            <li>Police: 999 | Ambulance: 911</li>
+            <li>Fire: 122 | URA: 0800-117-000</li>
+            <li>support@ugandastaff.org</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center text-sm text-primary-foreground/50">
-        © 2026 Community Guardian. All rights reserved.
+        © 2026 Uganda Staff Guardian. All rights reserved.
       </div>
     </div>
   </footer>
