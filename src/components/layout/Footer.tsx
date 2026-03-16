@@ -8,10 +8,10 @@ const Footer = () => (
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Shield className="h-6 w-6 text-accent" />
-            <span className="font-heading text-lg font-bold">CommunityGuardian</span>
+            <span className="font-heading text-lg font-bold">UgandaStaff</span>
           </div>
           <p className="text-primary-foreground/70 text-sm">
-            Empowering communities with safety, education, and health services.
+            Empowering Ugandan staff nationwide with safety, education, and health services.
           </p>
         </div>
         <div>
