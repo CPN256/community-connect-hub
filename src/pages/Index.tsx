@@ -58,9 +58,9 @@ const features = [
 ];
 
 const stats = [
-  { value: "5,000+", label: "Citizens Protected" },
-  { value: "120+", label: "Hospitals Listed" },
-  { value: "350+", label: "Schools Registered" },
+  { value: "10,000+", label: "Staff Connected" },
+  { value: "200+", label: "Hospitals Listed" },
+  { value: "500+", label: "Schools Registered" },
   { value: "24/7", label: "Emergency Support" },
 ];
 
