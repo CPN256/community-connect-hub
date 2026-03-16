@@ -9,7 +9,7 @@ const services = [
     icon: Briefcase,
     title: "Job Opportunities",
     desc: "Browse local job listings and career resources for community members.",
-    items: ["Software Developer — City Tech Corp", "Nurse — City General Hospital", "Teacher — Lincoln High School", "Security Officer — Community Center"],
+    items: ["Software Developer — MTN Uganda", "Nurse — Mulago Hospital", "Teacher — Makerere University", "Security Officer — Kampala District"],
     color: "text-primary",
     bg: "bg-primary/10",
   },
