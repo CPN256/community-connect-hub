@@ -31,8 +31,9 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-semibold mb-3">Contact</h4>
           <ul className="space-y-2 text-sm text-primary-foreground/70">
-            <li>Emergency: 911</li>
-            <li>support@communityguardian.org</li>
+            <li>Police: 999 | Ambulance: 911</li>
+            <li>Fire: 122 | URA: 0800-117-000</li>
+            <li>support@ugandastaff.org</li>
           </ul>
         </div>
       </div>
