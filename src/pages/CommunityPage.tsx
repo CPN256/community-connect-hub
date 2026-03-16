@@ -17,7 +17,7 @@ const services = [
     icon: Megaphone,
     title: "Community Announcements",
     desc: "Stay informed with the latest community news and updates.",
-    items: ["Road closure on Main St — Mar 10-15", "Free health screening — Community Center, Mar 12", "Water supply maintenance — Mar 14, 8am-2pm", "Town hall meeting — Mar 20, 6pm"],
+    items: ["Road closure on Jinja Road — Mar 10-15", "Free health screening — Mengo Hospital, Mar 12", "Water supply maintenance — Entebbe, Mar 14", "District meeting — Kampala, Mar 20, 6pm"],
     color: "text-accent",
     bg: "bg-accent/10",
   },
