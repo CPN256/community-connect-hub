@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Menu, X, User, LogOut } from "lucide-react";
+import { Shield, Menu, X, User, LogOut, BarChart3 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import {
   DropdownMenu,
@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
+import NotificationBell from "@/components/NotificationBell";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -47,13 +48,18 @@ const Navbar = () => {
               </Button>
             </Link>
           ))}
+          <Link to="/analytics">
+            <Button variant={location.pathname === "/analytics" ? "secondary" : "ghost"} size="sm">
+              <BarChart3 className="h-4 w-4 mr-1" /> Analytics
+            </Button>
+          </Link>
           <Link to="/emergency">
             <Button variant="emergency" size="sm" className="ml-2 animate-none">
               🚨 SOS
             </Button>
           </Link>
 
-          {/* Auth section */}
+          {!isLoading && user && <NotificationBell />}
           {!isLoading && (
             user ? (
               <DropdownMenu>
@@ -78,6 +84,12 @@ const Navbar = () => {
                     </div>
                   </div>
                   <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile" className="cursor-pointer">
+                      <User className="mr-2 h-4 w-4" />
+                      My Profile
+                    </Link>
+                  </DropdownMenuItem>
                   {roles.includes("admin") && (
                     <DropdownMenuItem asChild>
                       <Link to="/admin" className="cursor-pointer">

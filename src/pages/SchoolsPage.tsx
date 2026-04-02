@@ -7,9 +7,11 @@ import { GraduationCap, MapPin, Search, Users, BookOpen, Phone, Loader2, Map } f
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
+import DistrictFilter from "@/components/DistrictFilter";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
+  const [district, setDistrict] = useState("all");
   const [showMap, setShowMap] = useState(true);
 
   const { data: schools = [], isLoading } = useQuery({
@@ -23,9 +25,10 @@ const SchoolsPage = () => {
 
   const filtered = schools.filter(
     (s) =>
-      s.name.toLowerCase().includes(search.toLowerCase()) ||
+      (s.name.toLowerCase().includes(search.toLowerCase()) ||
       s.type.toLowerCase().includes(search.toLowerCase()) ||
-      (s.programs || []).some((p: string) => p.toLowerCase().includes(search.toLowerCase()))
+      (s.programs || []).some((p: string) => p.toLowerCase().includes(search.toLowerCase()))) &&
+      (district === "all" || (s as any).district === district)
   );
 
   return (
@@ -50,8 +53,11 @@ const SchoolsPage = () => {
                 placeholder="Search schools, programs..."
                 className="w-full rounded-lg border bg-card pl-10 pr-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               />
-            </div>
-          </div>
+             </div>
+             <div className="flex justify-center mt-4">
+               <DistrictFilter value={district} onChange={setDistrict} />
+             </div>
+           </div>
         </section>
 
         {!isLoading && filtered.length > 0 && (

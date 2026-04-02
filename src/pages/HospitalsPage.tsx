@@ -7,9 +7,11 @@ import { Heart, Phone, MapPin, Search, Clock, Star, Loader2, Map } from "lucide-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
+import DistrictFilter from "@/components/DistrictFilter";
 
 const HospitalsPage = () => {
   const [search, setSearch] = useState("");
+  const [district, setDistrict] = useState("all");
   const [showMap, setShowMap] = useState(true);
 
   const { data: hospitals = [], isLoading } = useQuery({
@@ -23,8 +25,9 @@ const HospitalsPage = () => {
 
   const filtered = hospitals.filter(
     (h) =>
-      h.name.toLowerCase().includes(search.toLowerCase()) ||
-      (h.specialties || []).some((s: string) => s.toLowerCase().includes(search.toLowerCase()))
+      (h.name.toLowerCase().includes(search.toLowerCase()) ||
+      (h.specialties || []).some((s: string) => s.toLowerCase().includes(search.toLowerCase()))) &&
+      (district === "all" || (h as any).district === district)
   );
 
   return (
@@ -49,8 +52,11 @@ const HospitalsPage = () => {
                 placeholder="Search hospitals or specialties..."
                 className="w-full rounded-lg border bg-card pl-10 pr-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               />
-            </div>
-          </div>
+             </div>
+             <div className="flex justify-center mt-4">
+               <DistrictFilter value={district} onChange={setDistrict} />
+             </div>
+           </div>
         </section>
 
         {!isLoading && filtered.length > 0 && (
