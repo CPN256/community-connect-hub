@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AlertTriangle, Phone, MapPin, Flame, Shield, Heart, Navigation } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MapView, { MapMarker } from "@/components/MapView";
 
 const emergencyTypes = [
   { icon: Heart, label: "Medical", color: "bg-emergency/10 text-emergency", desc: "Heart attack, injury, accident" },
@@ -12,10 +13,10 @@ const emergencyTypes = [
 ];
 
 const safeLocations = [
-  { name: "Kampala Central Police Station", type: "Police", distance: "0.8 km", phone: "999" },
-  { name: "Mulago National Referral Hospital", type: "Hospital", distance: "1.2 km", phone: "0312-290-439" },
-  { name: "Nakivubo Bus Terminal", type: "Transport", distance: "1.5 km", phone: "0800-100-150" },
-  { name: "Kampala Community Center", type: "Safe Zone", distance: "0.5 km", phone: "0414-233-555" },
+  { name: "Kampala Central Police Station", type: "Police", distance: "0.8 km", phone: "999", lat: 0.3136, lng: 32.5811 },
+  { name: "Mulago National Referral Hospital", type: "Hospital", distance: "1.2 km", phone: "0312-290-439", lat: 0.3476, lng: 32.5772 },
+  { name: "Nakivubo Bus Terminal", type: "Transport", distance: "1.5 km", phone: "0800-100-150", lat: 0.3105, lng: 32.5855 },
+  { name: "Kampala Community Center", type: "Safe Zone", distance: "0.5 km", phone: "0414-233-555", lat: 0.3163, lng: 32.5822 },
 ];
 
 const EmergencyPage = () => {
@@ -104,6 +105,19 @@ const EmergencyPage = () => {
               <Button variant="success" size="lg" className="mb-8">
                 <MapPin className="h-5 w-5 mr-2" /> Find My Location
               </Button>
+              <div className="mb-6">
+                <MapView
+                  markers={safeLocations.map((loc, i): MapMarker => ({
+                    id: String(i),
+                    name: loc.name,
+                    lat: loc.lat,
+                    lng: loc.lng,
+                    info: `${loc.type} · ${loc.distance} · ${loc.phone}`,
+                    color: loc.type === "Police" ? "#1d4ed8" : loc.type === "Hospital" ? "#e11d48" : "#16a34a",
+                  }))}
+                  height="300px"
+                />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {safeLocations.map((loc, i) => (
                   <div key={i} className="border rounded-lg p-4 flex items-center justify-between bg-background">
