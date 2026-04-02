@@ -7,9 +7,11 @@ import { Heart, Phone, MapPin, Search, Clock, Star, Loader2, Map } from "lucide-
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
+import DistrictFilter from "@/components/DistrictFilter";
 
 const HospitalsPage = () => {
   const [search, setSearch] = useState("");
+  const [district, setDistrict] = useState("all");
   const [showMap, setShowMap] = useState(true);
 
   const { data: hospitals = [], isLoading } = useQuery({
