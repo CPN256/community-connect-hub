@@ -59,8 +59,9 @@ const Navbar = () => {
             </Button>
           </Link>
 
-          {/* Auth section */}
+          {!isLoading && user && <NotificationBell />}
           {!isLoading && (
+            user ? (
             user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
