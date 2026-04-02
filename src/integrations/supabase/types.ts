@@ -54,6 +54,7 @@ export type Database = {
         Row: {
           address: string
           created_at: string
+          district: string | null
           id: string
           latitude: number | null
           longitude: number | null
@@ -68,6 +69,7 @@ export type Database = {
         Insert: {
           address: string
           created_at?: string
+          district?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
@@ -82,6 +84,7 @@ export type Database = {
         Update: {
           address?: string
           created_at?: string
+          district?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
@@ -95,11 +98,43 @@ export type Database = {
         }
         Relationships: []
       }
+      notifications: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean
+          message: string
+          title: string
+          type: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          message: string
+          title: string
+          type?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          message?: string
+          title?: string
+          type?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
           created_at: string
+          department: string | null
           display_name: string | null
+          district: string | null
           id: string
           phone: string | null
           updated_at: string
@@ -108,7 +143,9 @@ export type Database = {
         Insert: {
           avatar_url?: string | null
           created_at?: string
+          department?: string | null
           display_name?: string | null
+          district?: string | null
           id?: string
           phone?: string | null
           updated_at?: string
@@ -117,7 +154,9 @@ export type Database = {
         Update: {
           avatar_url?: string | null
           created_at?: string
+          department?: string | null
           display_name?: string | null
+          district?: string | null
           id?: string
           phone?: string | null
           updated_at?: string
@@ -130,6 +169,7 @@ export type Database = {
           address: string
           admission_open: boolean
           created_at: string
+          district: string | null
           id: string
           latitude: number | null
           longitude: number | null
@@ -144,6 +184,7 @@ export type Database = {
           address: string
           admission_open?: boolean
           created_at?: string
+          district?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
@@ -158,6 +199,7 @@ export type Database = {
           address?: string
           admission_open?: boolean
           created_at?: string
+          district?: string | null
           id?: string
           latitude?: number | null
           longitude?: number | null
