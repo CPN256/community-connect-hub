@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, MapPin, Search, Users, BookOpen, Phone, Loader2 } from "lucide-react";
+import { GraduationCap, MapPin, Search, Users, BookOpen, Phone, Loader2, Map } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MapView, { MapMarker } from "@/components/MapView";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
