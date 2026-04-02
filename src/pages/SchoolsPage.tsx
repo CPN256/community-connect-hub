@@ -25,9 +25,10 @@ const SchoolsPage = () => {
 
   const filtered = schools.filter(
     (s) =>
-      s.name.toLowerCase().includes(search.toLowerCase()) ||
+      (s.name.toLowerCase().includes(search.toLowerCase()) ||
       s.type.toLowerCase().includes(search.toLowerCase()) ||
-      (s.programs || []).some((p: string) => p.toLowerCase().includes(search.toLowerCase()))
+      (s.programs || []).some((p: string) => p.toLowerCase().includes(search.toLowerCase()))) &&
+      (district === "all" || (s as any).district === district)
   );
 
   return (
