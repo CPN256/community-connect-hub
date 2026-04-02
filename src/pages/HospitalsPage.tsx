@@ -52,8 +52,11 @@ const HospitalsPage = () => {
                 placeholder="Search hospitals or specialties..."
                 className="w-full rounded-lg border bg-card pl-10 pr-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               />
-            </div>
-          </div>
+             </div>
+             <div className="flex justify-center mt-4">
+               <DistrictFilter value={district} onChange={setDistrict} />
+             </div>
+           </div>
         </section>
 
         {!isLoading && filtered.length > 0 && (
