@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { AlertTriangle, Phone, MapPin, Flame, Shield, Heart, Navigation } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MapView, { MapMarker } from "@/components/MapView";
 
 const emergencyTypes = [
   { icon: Heart, label: "Medical", color: "bg-emergency/10 text-emergency", desc: "Heart attack, injury, accident" },
