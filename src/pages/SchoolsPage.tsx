@@ -10,6 +10,7 @@ import MapView, { MapMarker } from "@/components/MapView";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
+  const [showMap, setShowMap] = useState(true);
 
   const { data: schools = [], isLoading } = useQuery({
     queryKey: ["schools"],
