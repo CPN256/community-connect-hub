@@ -62,7 +62,6 @@ const Navbar = () => {
           {!isLoading && user && <NotificationBell />}
           {!isLoading && (
             user ? (
-            user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="ml-2 gap-2">
