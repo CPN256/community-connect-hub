@@ -25,8 +25,9 @@ const HospitalsPage = () => {
 
   const filtered = hospitals.filter(
     (h) =>
-      h.name.toLowerCase().includes(search.toLowerCase()) ||
-      (h.specialties || []).some((s: string) => s.toLowerCase().includes(search.toLowerCase()))
+      (h.name.toLowerCase().includes(search.toLowerCase()) ||
+      (h.specialties || []).some((s: string) => s.toLowerCase().includes(search.toLowerCase()))) &&
+      (district === "all" || (h as any).district === district)
   );
 
   return (
