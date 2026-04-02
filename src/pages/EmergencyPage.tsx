@@ -105,6 +105,19 @@ const EmergencyPage = () => {
               <Button variant="success" size="lg" className="mb-8">
                 <MapPin className="h-5 w-5 mr-2" /> Find My Location
               </Button>
+              <div className="mb-6">
+                <MapView
+                  markers={safeLocations.map((loc, i): MapMarker => ({
+                    id: String(i),
+                    name: loc.name,
+                    lat: loc.lat,
+                    lng: loc.lng,
+                    info: `${loc.type} · ${loc.distance} · ${loc.phone}`,
+                    color: loc.type === "Police" ? "#1d4ed8" : loc.type === "Hospital" ? "#e11d48" : "#16a34a",
+                  }))}
+                  height="300px"
+                />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                 {safeLocations.map((loc, i) => (
                   <div key={i} className="border rounded-lg p-4 flex items-center justify-between bg-background">

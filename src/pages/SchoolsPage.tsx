@@ -54,6 +54,36 @@ const SchoolsPage = () => {
           </div>
         </section>
 
+        {!isLoading && filtered.length > 0 && (
+          <section className="py-6">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-heading text-xl font-bold text-foreground flex items-center gap-2">
+                  <Map className="h-5 w-5 text-accent" /> School Locations
+                </h2>
+                <Button variant="outline" size="sm" onClick={() => setShowMap(!showMap)}>
+                  {showMap ? "Hide Map" : "Show Map"}
+                </Button>
+              </div>
+              {showMap && (
+                <MapView
+                  markers={filtered
+                    .filter((s) => s.latitude && s.longitude)
+                    .map((s): MapMarker => ({
+                      id: s.id,
+                      name: s.name,
+                      lat: s.latitude!,
+                      lng: s.longitude!,
+                      info: `${s.type} · ${s.address}`,
+                      color: "#2563eb",
+                    }))}
+                  defaultColor="#2563eb"
+                />
+              )}
+            </div>
+          </section>
+        )}
+
         <section className="py-12">
           <div className="container mx-auto px-4">
             {isLoading ? (
