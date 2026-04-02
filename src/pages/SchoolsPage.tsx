@@ -7,9 +7,11 @@ import { GraduationCap, MapPin, Search, Users, BookOpen, Phone, Loader2, Map } f
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
+import DistrictFilter from "@/components/DistrictFilter";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
+  const [district, setDistrict] = useState("all");
   const [showMap, setShowMap] = useState(true);
 
   const { data: schools = [], isLoading } = useQuery({
