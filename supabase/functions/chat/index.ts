@@ -14,43 +14,53 @@ serve(async (req) => {
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
-    // Fetch live data from database to give AI context
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     const [hospitalsRes, schoolsRes] = await Promise.all([
-      supabase.from("hospitals").select("name, type, address, phone, open_24h, specialties, rating").limit(50),
-      supabase.from("schools").select("name, type, address, phone, admission_open, programs").limit(50),
+      supabase.from("hospitals").select("name, type, address, phone, open_24h, specialties, rating, district").limit(50),
+      supabase.from("schools").select("name, type, address, phone, admission_open, programs, district").limit(50),
     ]);
 
     const hospitalsContext = hospitalsRes.data?.length
-      ? `Available hospitals:\n${hospitalsRes.data.map(h => `- ${h.name} (${h.type}) at ${h.address}, Phone: ${h.phone || 'N/A'}, 24h: ${h.open_24h ? 'Yes' : 'No'}, Specialties: ${(h.specialties || []).join(', ') || 'N/A'}, Rating: ${h.rating || 'N/A'}`).join('\n')}`
+      ? `Available hospitals in Uganda:\n${hospitalsRes.data.map(h => `- ${h.name} (${h.type}) at ${h.address}, District: ${h.district || 'N/A'}, Phone: ${h.phone || 'N/A'}, 24h: ${h.open_24h ? 'Yes' : 'No'}, Specialties: ${(h.specialties || []).join(', ') || 'N/A'}, Rating: ${h.rating || 'N/A'}`).join('\n')}`
       : "No hospitals currently in the database.";
 
     const schoolsContext = schoolsRes.data?.length
-      ? `Available schools:\n${schoolsRes.data.map(s => `- ${s.name} (${s.type}) at ${s.address}, Phone: ${s.phone || 'N/A'}, Admissions Open: ${s.admission_open ? 'Yes' : 'No'}, Programs: ${(s.programs || []).join(', ') || 'N/A'}`).join('\n')}`
+      ? `Available schools in Uganda:\n${schoolsRes.data.map(s => `- ${s.name} (${s.type}) at ${s.address}, District: ${s.district || 'N/A'}, Phone: ${s.phone || 'N/A'}, Admissions Open: ${s.admission_open ? 'Yes' : 'No'}, Programs: ${(s.programs || []).join(', ') || 'N/A'}`).join('\n')}`
       : "No schools currently in the database.";
 
-    const systemPrompt = `You are a helpful city services assistant. You help users find hospitals, schools, and emergency services in their city.
+    const systemPrompt = `You are the Uganda Staff Guardian AI assistant. You ONLY help Ugandan government and public sector staff find hospitals, schools, and emergency services WITHIN UGANDA.
 
-You have access to the following real-time data:
+IMPORTANT RULES:
+- You must ONLY provide information about services, hospitals, schools, and locations in Uganda
+- If a user asks about services outside Uganda, politely redirect them and explain you only cover Ugandan services
+- Always reference Ugandan districts, cities, and regions (e.g., Kampala, Entebbe, Jinja, Gulu, Mbarara, Fort Portal, Lira, Soroti, Mbale, Arua)
+- Use Ugandan emergency numbers: Police 999, Ambulance 911, Fire 112
+- Refer to the Uganda National Referral Hospital (Mulago), Butabika Hospital, and other known Ugandan health facilities when relevant
+
+You have access to the following real-time data from the Uganda Staff Guardian platform:
 
 ${hospitalsContext}
 
 ${schoolsContext}
 
-Emergency services:
-- For life-threatening emergencies, always advise calling emergency services (911 or local equivalent)
+Emergency services in Uganda:
+- Police Emergency: 999
+- Ambulance / Medical Emergency: 911
+- Fire Brigade: 112
+- Uganda Red Cross: +256-414-258701
 - Guide users to the Emergency page on the platform to file reports
-- Help users understand which hospital or service is most appropriate for their needs
+- Help users understand which Ugandan hospital or service is most appropriate
 
 Guidelines:
 - Be concise and helpful
-- When recommending hospitals or schools, include their address and phone number
+- When recommending hospitals or schools, include their address, district, and phone number
 - If no data matches the user's query, let them know and suggest they check back later
 - Always prioritize safety for emergency-related questions
-- Use markdown formatting for readability`;
+- Use markdown formatting for readability
+- Greet users as "Ugandan staff" or "colleague"`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",

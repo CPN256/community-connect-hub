@@ -60,6 +60,7 @@ const Navbar = () => {
             </Button>
           </Link>
 
+          <ThemeToggle />
           {!isLoading && user && <NotificationBell />}
           {!isLoading && (
             user ? (
