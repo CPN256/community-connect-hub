@@ -140,6 +140,9 @@ const Navbar = () => {
               🚨 Emergency SOS
             </Button>
           </Link>
+          <div className="flex justify-center py-1">
+            <ThemeToggle />
+          </div>
           {!isLoading && (
             user ? (
               <div className="pt-2 border-t space-y-1">
