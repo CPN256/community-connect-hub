@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
 import DistrictFilter from "@/components/DistrictFilter";
+import hospitalImg from "@/assets/uganda-hospital.jpg";
 
 const HospitalsPage = () => {
   const [search, setSearch] = useState("");
