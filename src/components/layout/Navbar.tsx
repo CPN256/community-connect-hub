@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Badge } from "@/components/ui/badge";
 import NotificationBell from "@/components/NotificationBell";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -59,6 +60,7 @@ const Navbar = () => {
             </Button>
           </Link>
 
+          <ThemeToggle />
           {!isLoading && user && <NotificationBell />}
           {!isLoading && (
             user ? (
@@ -138,6 +140,9 @@ const Navbar = () => {
               🚨 Emergency SOS
             </Button>
           </Link>
+          <div className="flex justify-center py-1">
+            <ThemeToggle />
+          </div>
           {!isLoading && (
             user ? (
               <div className="pt-2 border-t space-y-1">

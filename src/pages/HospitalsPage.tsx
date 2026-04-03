@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
 import DistrictFilter from "@/components/DistrictFilter";
+import hospitalImg from "@/assets/uganda-hospital.jpg";
 
 const HospitalsPage = () => {
   const [search, setSearch] = useState("");
@@ -34,14 +35,18 @@ const HospitalsPage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-16">
-        <section className="gradient-hero py-14">
-          <div className="container mx-auto px-4 text-center">
+        <section className="relative py-14 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={hospitalImg} alt="Ugandan hospital" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 gradient-hero opacity-85" />
+          </div>
+          <div className="relative container mx-auto px-4 text-center">
             <Heart className="h-12 w-12 text-accent mx-auto mb-4" />
             <h1 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
               Hospitals & Doctors
             </h1>
             <p className="text-primary-foreground/70 max-w-md mx-auto mb-6">
-              Find nearby hospitals, contact doctors, and book appointments.
+              Find nearby hospitals, contact doctors, and book appointments across Uganda.
             </p>
             <div className="max-w-md mx-auto relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
