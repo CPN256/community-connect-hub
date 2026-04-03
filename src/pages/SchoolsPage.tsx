@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
 import DistrictFilter from "@/components/DistrictFilter";
+import schoolImg from "@/assets/uganda-school.jpg";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
