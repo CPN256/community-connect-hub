@@ -16,6 +16,7 @@ import ProfilePage from "./pages/ProfilePage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import ChatBot from "./components/ChatBot";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminFloatingButton from "./components/AdminFloatingButton";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ChatBot />
+          <AdminFloatingButton />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
