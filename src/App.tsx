@@ -29,14 +29,14 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<AuthPage />} />
-            <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
-            <Route path="/emergency" element={<ProtectedRoute><EmergencyPage /></ProtectedRoute>} />
-            <Route path="/hospitals" element={<ProtectedRoute><HospitalsPage /></ProtectedRoute>} />
-            <Route path="/schools" element={<ProtectedRoute><SchoolsPage /></ProtectedRoute>} />
-            <Route path="/community" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
+            <Route path="/" element={<Index />} />
+            <Route path="/emergency" element={<EmergencyPage />} />
+            <Route path="/hospitals" element={<HospitalsPage />} />
+            <Route path="/schools" element={<SchoolsPage />} />
+            <Route path="/community" element={<CommunityPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
-            <Route path="/analytics" element={<ProtectedRoute><AnalyticsPage /></ProtectedRoute>} />
+            <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <ChatBot />
