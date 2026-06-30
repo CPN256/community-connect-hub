@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# Welcome to cat`s project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+**URL**: https://catcpn3.vercel.app
 
-## How can I edit this code?
+**meet the founder**
+**URL**:https://lh3.googleusercontent.com/gps-cs-s/APNQkAG9-wU4iiBVuo0R-xe9tf4V-a-adM-LE4FWNXUaQLP6QqjQkjgTSW_SFm5eUCr0GfyaV1TmNs9iXCp6CcCuofnDglYhOxZzBGIo8RcYml1eTesJ_WCdM-FkMjVmqGJsCv8F4rCYsMLYVUZ-=s1360-w1360-h1020-rw
+<img width="448" height="1020" alt="image" src="https://github.com/user-attachments/assets/86a81027-417d-4079-a70f-64b3d7bf8fe7" />
 
-There are several ways of editing your application.
 
-**Use Lovable**
+# BrightPath Finder
+BrightPath Finder is a user-friendly web application designed to help people quickly locate nearby schools and hospitals with ease.
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Interactive Map – View schools and hospitals plotted on a dynamic, zoomable map.
 
-Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+Search & Filters – Find locations by name, category, or distance.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Detailed Profiles – Access essential information such as address, contact details, and services offered.
 
-Follow these steps:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Photo Galleries – Browse high-quality images of facilities for a better sense of the environment.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+Responsive Design – Works seamlessly on desktop, tablet, and mobile devices.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## Purpose
+This project aims to make it easier for families, students, and patients to find trusted educational and healthcare institutions in their area, with a focus on clarity, accessibility, and visual appeal.
+## Tech Stack
 
-**Edit a file directly in GitHub**
+Frontend: HTML, CSS, JavaScript (or React/Vue if applicable)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+Backend: Node.js / Express (or your backend choice)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+Map Integration: Google Maps API / Leaflet.js
 
-This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Database: MongoDB / PostgreSQL
