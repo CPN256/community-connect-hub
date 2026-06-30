@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
 import DistrictFilter from "@/components/DistrictFilter";
 import schoolImg from "@/assets/uganda-school.jpg";
+import LivePlacesSearch from "@/components/LivePlacesSearch";
 
 const SchoolsPage = () => {
   const [search, setSearch] = useState("");
@@ -64,6 +65,13 @@ const SchoolsPage = () => {
              </div>
            </div>
         </section>
+
+        <LivePlacesSearch
+          defaultQuery="schools"
+          color="#2563eb"
+          title="Live School Search (GPS + Google Maps)"
+          description="Finds real schools and universities near your current location across Uganda."
+        />
 
         {!isLoading && filtered.length > 0 && (
           <section className="py-6">

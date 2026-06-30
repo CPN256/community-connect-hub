@@ -8,6 +8,7 @@ import WhatToDoSection from "@/components/emergency/WhatToDoSection";
 import SafeLocations from "@/components/emergency/SafeLocations";
 import FirstAidGuide from "@/components/emergency/FirstAidGuide";
 import SafetyTips from "@/components/emergency/SafetyTips";
+import LivePlacesSearch from "@/components/LivePlacesSearch";
 
 const EmergencyPage = () => {
   const [selectedType, setSelectedType] = useState<string | null>(null);
@@ -21,6 +22,12 @@ const EmergencyPage = () => {
         <EmergencyTypes selectedType={selectedType} onSelect={setSelectedType} />
         <WhatToDoSection />
         <SafeLocations />
+        <LivePlacesSearch
+          defaultQuery="police station"
+          color="#1d4ed8"
+          title="Find Help Near Me (Live GPS)"
+          description="We use your GPS location to find the closest police, hospitals, or fire stations in real time."
+        />
         <FirstAidGuide />
         <SafetyTips />
       </div>

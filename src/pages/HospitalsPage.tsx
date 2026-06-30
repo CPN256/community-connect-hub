@@ -9,6 +9,7 @@ import Footer from "@/components/layout/Footer";
 import MapView, { MapMarker } from "@/components/MapView";
 import DistrictFilter from "@/components/DistrictFilter";
 import hospitalImg from "@/assets/uganda-hospital.jpg";
+import LivePlacesSearch from "@/components/LivePlacesSearch";
 
 const HospitalsPage = () => {
   const [search, setSearch] = useState("");
@@ -63,6 +64,13 @@ const HospitalsPage = () => {
              </div>
            </div>
         </section>
+
+        <LivePlacesSearch
+          defaultQuery="hospitals"
+          color="#e11d48"
+          title="Live Hospital Search (GPS + Google Maps)"
+          description="Auto-detects your location and shows the nearest real hospitals across Uganda."
+        />
 
         {!isLoading && filtered.length > 0 && (
           <section className="py-6">
