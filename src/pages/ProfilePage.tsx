@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { User, Phone, MapPin, Building2, Loader2, Save } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import EmergencyContactsSection from "@/components/profile/EmergencyContactsSection";
 
 const UGANDA_DISTRICTS = [
   "Kampala", "Wakiso", "Mukono", "Jinja", "Mbale", "Gulu", "Lira", "Soroti",
