@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Heart, GraduationCap, MapPin, AlertTriangle, Users, Phone, BookOpen } from "lucide-react";
+import { Shield, Heart, GraduationCap, MapPin, AlertTriangle, Users, Phone, AlertOctagon } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import heroImage from "@/assets/hero-cityscape.jpg";
+import SafeCheckinButton from "@/components/SafeCheckinButton";
+import AnnouncementsBanner from "@/components/AnnouncementsBanner";
 
 const features = [
   {
