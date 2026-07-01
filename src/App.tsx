@@ -31,11 +31,13 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route path="/" element={<Index />} />
             <Route path="/emergency" element={<EmergencyPage />} />
             <Route path="/hospitals" element={<HospitalsPage />} />
             <Route path="/schools" element={<SchoolsPage />} />
             <Route path="/community" element={<CommunityPage />} />
+            <Route path="/report" element={<IncidentReportPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/analytics" element={<AnalyticsPage />} />
