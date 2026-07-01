@@ -136,6 +136,7 @@ const ProfilePage = () => {
               </div>
             </CardContent>
           </Card>
+          <EmergencyContactsSection />
         </div>
       </div>
       <Footer />
