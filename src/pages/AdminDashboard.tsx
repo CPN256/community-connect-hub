@@ -15,8 +15,13 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Shield, Heart, GraduationCap, Users, AlertTriangle,
   Plus, Pencil, Trash2, Loader2, ArrowLeft, Bell, MapPin,
+  LayoutDashboard, Briefcase, Megaphone, LogOut, AlertOctagon,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
+import OverviewTab from "@/components/admin/OverviewTab";
+import IncidentsTab from "@/components/admin/IncidentsTab";
+import JobsTab from "@/components/admin/JobsTab";
+import AnnouncementsTab from "@/components/admin/AnnouncementsTab";
 
 const DISTRICTS = [
   "Kampala","Wakiso","Mukono","Jinja","Mbarara","Gulu","Lira","Soroti","Mbale",
@@ -519,6 +524,11 @@ const AdminDashboard = () => {
   const { hasRole, isLoading } = useAuth();
   const navigate = useNavigate();
 
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/admin/login");
+  };
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -535,7 +545,7 @@ const AdminDashboard = () => {
           <Shield className="h-16 w-16 text-destructive mb-4" />
           <h1 className="font-heading text-2xl font-bold mb-2">Access Denied</h1>
           <p className="text-muted-foreground mb-6">You need admin privileges to access this dashboard.</p>
-          <Button onClick={() => navigate("/")}><ArrowLeft className="h-4 w-4 mr-1" /> Back to Home</Button>
+          <Button onClick={() => navigate("/admin/login")}><ArrowLeft className="h-4 w-4 mr-1" /> Admin Login</Button>
         </div>
       </div>
     );
@@ -545,28 +555,41 @@ const AdminDashboard = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-20 pb-12 px-4">
-        <div className="container mx-auto max-w-5xl">
-          <div className="flex items-center gap-3 mb-8">
-            <Shield className="h-8 w-8 text-accent" />
-            <div>
-              <h1 className="font-heading text-2xl font-bold">Admin Dashboard</h1>
-              <p className="text-muted-foreground text-sm">Manage all community resources, users, notifications, and reports</p>
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex items-center justify-between mb-8 flex-wrap gap-3">
+            <div className="flex items-center gap-3">
+              <Shield className="h-8 w-8 text-accent" />
+              <div>
+                <h1 className="font-heading text-2xl font-bold">Admin Dashboard</h1>
+                <p className="text-muted-foreground text-sm">Manage users, services, content, and alerts</p>
+              </div>
             </div>
+            <Button variant="outline" size="sm" onClick={handleLogout}>
+              <LogOut className="h-4 w-4 mr-1" /> Logout
+            </Button>
           </div>
 
-          <Tabs defaultValue="hospitals">
-            <TabsList className="mb-6 flex-wrap">
+          <Tabs defaultValue="overview">
+            <TabsList className="mb-6 flex-wrap h-auto">
+              <TabsTrigger value="overview" className="gap-1"><LayoutDashboard className="h-4 w-4" /> Overview</TabsTrigger>
               <TabsTrigger value="hospitals" className="gap-1"><Heart className="h-4 w-4" /> Hospitals</TabsTrigger>
               <TabsTrigger value="schools" className="gap-1"><GraduationCap className="h-4 w-4" /> Schools</TabsTrigger>
+              <TabsTrigger value="jobs" className="gap-1"><Briefcase className="h-4 w-4" /> Jobs</TabsTrigger>
               <TabsTrigger value="users" className="gap-1"><Users className="h-4 w-4" /> Users</TabsTrigger>
-              <TabsTrigger value="notifications" className="gap-1"><Bell className="h-4 w-4" /> Notify</TabsTrigger>
+              <TabsTrigger value="incidents" className="gap-1"><AlertOctagon className="h-4 w-4" /> Incidents</TabsTrigger>
               <TabsTrigger value="emergencies" className="gap-1"><AlertTriangle className="h-4 w-4" /> Emergencies</TabsTrigger>
+              <TabsTrigger value="announcements" className="gap-1"><Megaphone className="h-4 w-4" /> Announcements</TabsTrigger>
+              <TabsTrigger value="notifications" className="gap-1"><Bell className="h-4 w-4" /> Notify</TabsTrigger>
             </TabsList>
+            <TabsContent value="overview"><OverviewTab /></TabsContent>
             <TabsContent value="hospitals"><HospitalsTab /></TabsContent>
             <TabsContent value="schools"><SchoolsTab /></TabsContent>
+            <TabsContent value="jobs"><JobsTab /></TabsContent>
             <TabsContent value="users"><UsersTab /></TabsContent>
-            <TabsContent value="notifications"><NotificationsTab /></TabsContent>
+            <TabsContent value="incidents"><IncidentsTab /></TabsContent>
             <TabsContent value="emergencies"><EmergencyTab /></TabsContent>
+            <TabsContent value="announcements"><AnnouncementsTab /></TabsContent>
+            <TabsContent value="notifications"><NotificationsTab /></TabsContent>
           </Tabs>
         </div>
       </div>

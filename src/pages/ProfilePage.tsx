@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { User, Phone, MapPin, Building2, Loader2, Save } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import EmergencyContactsSection from "@/components/profile/EmergencyContactsSection";
 
 const UGANDA_DISTRICTS = [
   "Kampala", "Wakiso", "Mukono", "Jinja", "Mbale", "Gulu", "Lira", "Soroti",
@@ -80,7 +81,7 @@ const ProfilePage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-20 pb-12 px-4">
-        <div className="container mx-auto max-w-xl">
+        <div className="container mx-auto max-w-xl space-y-6">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-accent/10 p-3 rounded-full">
               <User className="h-8 w-8 text-accent" />
@@ -135,6 +136,7 @@ const ProfilePage = () => {
               </div>
             </CardContent>
           </Card>
+          <EmergencyContactsSection />
         </div>
       </div>
       <Footer />

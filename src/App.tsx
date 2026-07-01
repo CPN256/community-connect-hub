@@ -12,8 +12,10 @@ import SchoolsPage from "./pages/SchoolsPage";
 import CommunityPage from "./pages/CommunityPage";
 import AuthPage from "./pages/AuthPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import AdminLoginPage from "./pages/AdminLoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import AnalyticsPage from "./pages/AnalyticsPage";
+import IncidentReportPage from "./pages/IncidentReportPage";
 import ChatBot from "./components/ChatBot";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminFloatingButton from "./components/AdminFloatingButton";
@@ -29,11 +31,13 @@ const App = () => (
         <AuthProvider>
           <Routes>
             <Route path="/auth" element={<AuthPage />} />
+            <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route path="/" element={<Index />} />
             <Route path="/emergency" element={<EmergencyPage />} />
             <Route path="/hospitals" element={<HospitalsPage />} />
             <Route path="/schools" element={<SchoolsPage />} />
             <Route path="/community" element={<CommunityPage />} />
+            <Route path="/report" element={<IncidentReportPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/analytics" element={<AnalyticsPage />} />
