@@ -101,6 +101,12 @@ const Index = () => {
                   🚨 Emergency SOS
                 </Button>
               </Link>
+              <SafeCheckinButton />
+              <Link to="/report">
+                <Button variant="outline" size="lg" className="text-base bg-background/10 border-white/30 text-primary-foreground hover:bg-background/20">
+                  <AlertOctagon className="h-4 w-4 mr-1" /> Report Incident
+                </Button>
+              </Link>
               <Link to="/hospitals">
                 <Button variant="hero" size="lg" className="text-base">
                   Find Services
@@ -110,6 +116,8 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      <AnnouncementsBanner />
 
       {/* Stats */}
       <section className="bg-card border-b">
