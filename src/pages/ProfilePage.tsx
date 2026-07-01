@@ -81,7 +81,7 @@ const ProfilePage = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-20 pb-12 px-4">
-        <div className="container mx-auto max-w-xl">
+        <div className="container mx-auto max-w-xl space-y-6">
           <div className="flex items-center gap-3 mb-8">
             <div className="bg-accent/10 p-3 rounded-full">
               <User className="h-8 w-8 text-accent" />
