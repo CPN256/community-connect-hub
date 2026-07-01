@@ -14,6 +14,66 @@ export type Database = {
   }
   public: {
     Tables: {
+      announcements: {
+        Row: {
+          content: string
+          created_at: string
+          created_by: string | null
+          id: string
+          is_published: boolean
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_published?: boolean
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_published?: boolean
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      emergency_contacts: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          phone: string
+          relationship: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          phone: string
+          relationship?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          phone?: string
+          relationship?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       emergency_reports: {
         Row: {
           created_at: string
@@ -98,6 +158,96 @@ export type Database = {
         }
         Relationships: []
       }
+      incidents: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          incident_type: string
+          is_anonymous: boolean
+          latitude: number | null
+          location: string | null
+          longitude: number | null
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          id?: string
+          incident_type: string
+          is_anonymous?: boolean
+          latitude?: number | null
+          location?: string | null
+          longitude?: number | null
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          incident_type?: string
+          is_anonymous?: boolean
+          latitude?: number | null
+          location?: string | null
+          longitude?: number | null
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      job_listings: {
+        Row: {
+          category: string | null
+          company: string
+          contact: string | null
+          created_at: string
+          description: string | null
+          district: string | null
+          id: string
+          is_active: boolean
+          latitude: number | null
+          location: string | null
+          longitude: number | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          company: string
+          contact?: string | null
+          created_at?: string
+          description?: string | null
+          district?: string | null
+          id?: string
+          is_active?: boolean
+          latitude?: number | null
+          location?: string | null
+          longitude?: number | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          company?: string
+          contact?: string | null
+          created_at?: string
+          description?: string | null
+          district?: string | null
+          id?: string
+          is_active?: boolean
+          latitude?: number | null
+          location?: string | null
+          longitude?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       notifications: {
         Row: {
           created_at: string
@@ -164,11 +314,75 @@ export type Database = {
         }
         Relationships: []
       }
+      reviews: {
+        Row: {
+          comment: string | null
+          created_at: string
+          id: string
+          rating: number
+          service_id: string
+          service_type: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          rating: number
+          service_id: string
+          service_type: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          rating?: number
+          service_id?: string
+          service_type?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      safety_checkins: {
+        Row: {
+          created_at: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          message: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          message?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          message?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       schools: {
         Row: {
           address: string
           admission_open: boolean
           created_at: string
+          curriculum: string | null
           district: string | null
           id: string
           latitude: number | null
@@ -184,6 +398,7 @@ export type Database = {
           address: string
           admission_open?: boolean
           created_at?: string
+          curriculum?: string | null
           district?: string | null
           id?: string
           latitude?: number | null
@@ -199,6 +414,7 @@ export type Database = {
           address?: string
           admission_open?: boolean
           created_at?: string
+          curriculum?: string | null
           district?: string | null
           id?: string
           latitude?: number | null
