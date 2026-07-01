@@ -15,8 +15,13 @@ import { useToast } from "@/hooks/use-toast";
 import {
   Shield, Heart, GraduationCap, Users, AlertTriangle,
   Plus, Pencil, Trash2, Loader2, ArrowLeft, Bell, MapPin,
+  LayoutDashboard, Briefcase, Megaphone, LogOut, AlertOctagon,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
+import OverviewTab from "@/components/admin/OverviewTab";
+import IncidentsTab from "@/components/admin/IncidentsTab";
+import JobsTab from "@/components/admin/JobsTab";
+import AnnouncementsTab from "@/components/admin/AnnouncementsTab";
 
 const DISTRICTS = [
   "Kampala","Wakiso","Mukono","Jinja","Mbarara","Gulu","Lira","Soroti","Mbale",
