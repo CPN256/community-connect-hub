@@ -16,6 +16,13 @@ import AdminLoginPage from "./pages/AdminLoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import IncidentReportPage from "./pages/IncidentReportPage";
+import ImpactPage from "./pages/ImpactPage";
+import EmergencyMapPage from "./pages/EmergencyMapPage";
+import PredictPage from "./pages/PredictPage";
+import ResearchPage from "./pages/ResearchPage";
+import MediaPage from "./pages/MediaPage";
+import ForumPage from "./pages/ForumPage";
+import LeaderboardPage from "./pages/LeaderboardPage";
 import ChatBot from "./components/ChatBot";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminFloatingButton from "./components/AdminFloatingButton";
@@ -38,6 +45,13 @@ const App = () => (
             <Route path="/schools" element={<SchoolsPage />} />
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/report" element={<IncidentReportPage />} />
+            <Route path="/impact" element={<ImpactPage />} />
+            <Route path="/emergency-map" element={<EmergencyMapPage />} />
+            <Route path="/predict" element={<PredictPage />} />
+            <Route path="/research" element={<ResearchPage />} />
+            <Route path="/media" element={<MediaPage />} />
+            <Route path="/forum" element={<ForumPage />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
             <Route path="/analytics" element={<AnalyticsPage />} />

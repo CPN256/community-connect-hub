@@ -7,6 +7,9 @@ import Footer from "@/components/layout/Footer";
 import heroImage from "@/assets/hero-cityscape.jpg";
 import SafeCheckinButton from "@/components/SafeCheckinButton";
 import AnnouncementsBanner from "@/components/AnnouncementsBanner";
+import SdgBadges from "@/components/homepage/SdgBadges";
+import TestimonialsCarousel from "@/components/homepage/TestimonialsCarousel";
+import SubscribeForm from "@/components/homepage/SubscribeForm";
 
 const features = [
   {
