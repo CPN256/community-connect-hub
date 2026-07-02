@@ -39,8 +39,6 @@ const ForumPage = () => {
     mutationFn: async () => {
       const { error } = await supabase.from("forum_posts").insert({ ...form, user_id: user!.id });
       if (error) throw error;
-      // +10 points for posting
-      await supabase.rpc("update_updated_at_column").catch(() => {});
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["forum-posts"] });
