@@ -14,7 +14,7 @@ const ResearchPage = () => (
   <div className="min-h-screen bg-background">
     <Navbar />
     <main className="container mx-auto px-4 pt-24 pb-16 max-w-4xl">
-      <Badge className="mb-3">Science Competition Submission</Badge>
+      <Badge className="mb-3">it`s all about you</Badge>
       <h1 className="font-heading text-4xl font-bold mb-2">Research & Methodology</h1>
       <p className="text-muted-foreground mb-10">
         The scientific foundation behind Uganda Staff Guardian.
