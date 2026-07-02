@@ -121,6 +121,9 @@ const Index = () => {
       </section>
 
       <AnnouncementsBanner />
+      <SdgBadges />
+      <TestimonialsCarousel />
+      <SubscribeForm />
 
       {/* Stats */}
       <section className="bg-card border-b">
