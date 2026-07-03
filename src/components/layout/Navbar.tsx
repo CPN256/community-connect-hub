@@ -58,11 +58,13 @@ const Navbar = () => {
               </Link>
             );
           })}
-          <Link to="/analytics">
-            <Button variant={location.pathname === "/analytics" ? "secondary" : "ghost"} size="sm">
-              <BarChart3 className="h-4 w-4 mr-1" /> Analytics
-            </Button>
-          </Link>
+          {roles.includes("admin") && (
+            <Link to="/analytics">
+              <Button variant={location.pathname === "/analytics" ? "secondary" : "ghost"} size="sm">
+                <BarChart3 className="h-4 w-4 mr-1" /> Analytics
+              </Button>
+            </Link>
+          )}
           <Link to="/emergency">
             <Button variant="emergency" size="sm" className="ml-2 animate-none">
               🚨 SOS
