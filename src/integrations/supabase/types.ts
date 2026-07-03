@@ -384,11 +384,13 @@ export type Database = {
       profiles: {
         Row: {
           avatar_url: string | null
+          bio: string | null
           created_at: string
           department: string | null
           display_name: string | null
           district: string | null
           id: string
+          job_title: string | null
           level: number
           phone: string | null
           points: number
@@ -397,11 +399,13 @@ export type Database = {
         }
         Insert: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
           department?: string | null
           display_name?: string | null
           district?: string | null
           id?: string
+          job_title?: string | null
           level?: number
           phone?: string | null
           points?: number
@@ -410,11 +414,13 @@ export type Database = {
         }
         Update: {
           avatar_url?: string | null
+          bio?: string | null
           created_at?: string
           department?: string | null
           display_name?: string | null
           district?: string | null
           id?: string
+          job_title?: string | null
           level?: number
           phone?: string | null
           points?: number
