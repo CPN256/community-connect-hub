@@ -8,7 +8,7 @@ const emergencyContacts = [
   { name: "Red Cross Uganda", number: "0800-200-911", icon: Zap, color: "text-destructive", desc: "Disaster & first aid" },
   { name: "KCCA Helpline", number: "0800-100-100", icon: Building2, color: "text-primary", desc: "Kampala city services" },
   { name: "Anti-Corruption", number: "0800-100-01", icon: Phone, color: "text-muted-foreground", desc: "Report corruption" },
-  { name: "Platform Admin", number: "+256-7750184", icon: UserCog, color: "text-accent", desc: "Uganda Staff Guardian admin", email: "catphoenixnelson@gmail.com" },
+  { name: "Platform Admin", number: "075073834", icon: UserCog, color: "text-accent", desc: "Uganda Staff Guardian admin", email: "catphoenixnelson@gmail.com" },
 ];
 
 
