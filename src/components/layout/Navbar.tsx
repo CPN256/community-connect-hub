@@ -19,11 +19,10 @@ const navLinks = [
   { to: "/emergency", label: "Emergency" },
   { to: "/hospitals", label: "Hospitals" },
   { to: "/schools", label: "Schools" },
-  { to: "/community", label: "Community" },
+  { to: "/report", label: "Report" },
   { to: "/impact", label: "Impact" },
-  { to: "/emergency-map", label: "Map" },
   { to: "/forum", label: "Forum" },
-  { to: "/research", label: "Research" },
+  { to: "/profile", label: "Profile" },
 ];
 
 const Navbar = () => {
