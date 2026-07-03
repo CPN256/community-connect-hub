@@ -118,7 +118,7 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Link to="/auth">
+              <Link to="/profile">
                 <Button variant="outline" size="sm" className="ml-2">
                   Sign In
                 </Button>
@@ -155,7 +155,7 @@ const Navbar = () => {
           })}
           {!user && (
             <Link
-              to="/auth"
+              to="/profile"
               onClick={() => setOpen(false)}
               className="block px-3 py-2 text-sm font-medium rounded-md text-foreground/80 hover:text-emerald-600 hover:bg-muted"
             >
@@ -189,7 +189,7 @@ const Navbar = () => {
                 </Button>
               </div>
             ) : (
-              <Link to="/auth" onClick={() => setOpen(false)}>
+              <Link to="/profile" onClick={() => setOpen(false)}>
                 <Button variant="outline" className="w-full">Sign In</Button>
               </Link>
             )
