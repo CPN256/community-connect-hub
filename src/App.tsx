@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -10,7 +10,7 @@ import EmergencyPage from "./pages/EmergencyPage";
 import HospitalsPage from "./pages/HospitalsPage";
 import SchoolsPage from "./pages/SchoolsPage";
 import CommunityPage from "./pages/CommunityPage";
-import AuthPage from "./pages/AuthPage";
+// AuthPage removed — sign-in is inline on /profile
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import ProfilePage from "./pages/ProfilePage";
@@ -37,7 +37,7 @@ const App = () => (
       <BrowserRouter>
         <AuthProvider>
           <Routes>
-            <Route path="/auth" element={<AuthPage />} />
+            <Route path="/auth" element={<Navigate to="/profile" replace />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route path="/" element={<Index />} />
             <Route path="/emergency" element={<EmergencyPage />} />
@@ -53,7 +53,7 @@ const App = () => (
             <Route path="/forum" element={<ForumPage />} />
             <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
-            <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+            <Route path="/profile" element={<ProfilePage />} />
             <Route path="/analytics" element={<ProtectedRoute requireAdmin><AnalyticsPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
