@@ -19,11 +19,10 @@ const navLinks = [
   { to: "/emergency", label: "Emergency" },
   { to: "/hospitals", label: "Hospitals" },
   { to: "/schools", label: "Schools" },
-  { to: "/community", label: "Community" },
+  { to: "/report", label: "Report" },
   { to: "/impact", label: "Impact" },
-  { to: "/emergency-map", label: "Map" },
   { to: "/forum", label: "Forum" },
-  { to: "/research", label: "Research" },
+  { to: "/profile", label: "Profile" },
 ];
 
 const Navbar = () => {
@@ -43,16 +42,22 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link key={link.to} to={link.to}>
-              <Button
-                variant={location.pathname === link.to ? "secondary" : "ghost"}
-                size="sm"
+          {navLinks.map((link) => {
+            const active = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  active
+                    ? "text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40"
+                    : "text-foreground/80 hover:text-emerald-600 hover:bg-muted"
+                }`}
               >
                 {link.label}
-              </Button>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
           <Link to="/analytics">
             <Button variant={location.pathname === "/analytics" ? "secondary" : "ghost"} size="sm">
               <BarChart3 className="h-4 w-4 mr-1" /> Analytics
@@ -129,16 +134,32 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden bg-card border-b px-4 pb-4 space-y-1">
-          {navLinks.map((link) => (
-            <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>
-              <Button
-                variant={location.pathname === link.to ? "secondary" : "ghost"}
-                className="w-full justify-start"
+          {navLinks.map((link) => {
+            const active = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className={`block px-3 py-2 text-sm font-medium rounded-md ${
+                  active
+                    ? "text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40"
+                    : "text-foreground/80 hover:text-emerald-600 hover:bg-muted"
+                }`}
               >
                 {link.label}
-              </Button>
+              </Link>
+            );
+          })}
+          {!user && (
+            <Link
+              to="/auth"
+              onClick={() => setOpen(false)}
+              className="block px-3 py-2 text-sm font-medium rounded-md text-foreground/80 hover:text-emerald-600 hover:bg-muted"
+            >
+              Login
             </Link>
-          ))}
+          )}
           <Link to="/emergency" onClick={() => setOpen(false)}>
             <Button variant="emergency" className="w-full animate-none">
               🚨 Emergency SOS
