@@ -42,16 +42,22 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <Link key={link.to} to={link.to}>
-              <Button
-                variant={location.pathname === link.to ? "secondary" : "ghost"}
-                size="sm"
+          {navLinks.map((link) => {
+            const active = location.pathname === link.to;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  active
+                    ? "text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40"
+                    : "text-foreground/80 hover:text-emerald-600 hover:bg-muted"
+                }`}
               >
                 {link.label}
-              </Button>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
           <Link to="/analytics">
             <Button variant={location.pathname === "/analytics" ? "secondary" : "ghost"} size="sm">
               <BarChart3 className="h-4 w-4 mr-1" /> Analytics
